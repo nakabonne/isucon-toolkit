@@ -27,3 +27,7 @@ restart-mysql:
 
 pprof:
 	go tool pprof /home/isucon/isubata/webapp/go/src/isubata/  http://localhost:6060/debug/pprof/profile
+
+syslog:
+	sudo journalctl -e -u systemd.go.service
+
