@@ -20,6 +20,12 @@ sudo systemctl restart redis-server
 echo "$(tput setaf 2)in-memory cache reload Succeeded! $(tput sgr0)"
 echo ""
 
+# log rotate
+make rotate
+make mysqldumpslow
+echo "$(tput setaf 2)log rotate Succeeded! $(tput sgr0)"
+echo ""
+
 # application reload
 sudo cp etc/systemd.go.service /etc/systemd/system/systemd.go.service
 sudo systemctl daemon-reload
