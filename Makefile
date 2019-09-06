@@ -18,8 +18,8 @@ set-slow-log:
 	sudo mysql -uroot -e "set global log_queries_not_using_indexes = 1"
 
 mysqldumpslow:
-	# slow.logはそのインスタンスによって変える
-	sudo mysqldumpslow -s t /var/lib/mysql/slow.log > ~/tmp/slow.log
+	# slow logのファイル名はインスタンスによって変える
+	sudo mysqldumpslow -s t /var/lib/mysql/${SLOW_LOG_FILE_NAME}.log > ~/tmp/slow.log
 	sudo cp /dev/null /var/lib/mysql/slow.log
 
 restart-mysql:
