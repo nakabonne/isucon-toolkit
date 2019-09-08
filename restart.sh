@@ -2,7 +2,6 @@
 set -e
 
 # pull
-cd /var/www/html/webapp
 git pull
 echo "$(tput setaf 2)Pull Succeeded! $(tput sgr0)"
 echo ""
