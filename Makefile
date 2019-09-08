@@ -4,6 +4,7 @@ MAKEFLAGS = --no-builtin-rules --no-builtin-variables --always-make
 SHELL  = /usr/bin/env bash
 
 alp:
+	# aggregatesの引数には、まとめたいpathを指定する
 	sudo alp -r --sum --limit=1000 -f $(file) --aggregates "/iine\S+,/photo\S+,/tag\S+,/article\S+,/member\S+,/update\S+,/profileupdate\S+"
 
 restart:
@@ -20,7 +21,7 @@ set-slow-log:
 mysqldumpslow:
 	# slow logのファイル名はインスタンスによって変える
 	sudo mysqldumpslow -s t /var/lib/mysql/${SLOW_LOG_FILE_NAME}.log > ~/tmp/slow.log
-	sudo cp /dev/null /var/lib/mysql/slow.log
+	sudo cp /dev/null /var/lib/mysql/${SLOW_LOG_FILE_NAME}.log
 
 restart-mysql:
 	sudo /etc/init.d/mysql restart
